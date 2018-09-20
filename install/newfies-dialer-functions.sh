@@ -213,7 +213,9 @@ func_install_dependencies(){
 
             #Install Node.js & NPM
             apt-get -y install nodejs-legacy
-            curl -sL https://deb.nodesource.com/setup | bash -
+            #curl -sL https://deb.nodesource.com/setup | bash -
+            curl -sL https://deb.nodesource.com/setup_10.x | bash -
+            
             apt-get install -y nodejs
 
             # cd /usr/src/ ; git clone https://github.com/joyent/node.git
@@ -369,8 +371,8 @@ func_install_dependencies(){
 
     echo ""
     echo "easy_install -U setuptools pip distribute"
-    easy_install -U setuptools pip distribute
-
+    #easy_install -U setuptools pip distribute
+    apt-get install python-setuptools -y
     # install Bower
     npm install -g bower
 
@@ -460,7 +462,7 @@ func_install_source(){
     rm -rf newfies-dialer
     mkdir /var/log/newfies
 
-    git clone -b $BRANCH git://github.com/newfies-dialer/newfies-dialer.git
+    git clone -b $BRANCH git://github.com/romonzaman/newfies-dialer.git
     cd newfies-dialer
 
     #Install branch develop / callcenter
@@ -507,7 +509,8 @@ func_install_pip_deps(){
     for line in $(cat /usr/src/newfies-dialer/requirements/django.txt | grep -v \#)
     do
         echo "pip install $line"
-        pip install $line --allow-all-external --allow-unverified django-admin-tools
+        pip install $line
+        #pip install $line --allow-all-external --allow-unverified django-admin-tools
     done
     echo "Install Test requirements..."
     for line in $(cat /usr/src/newfies-dialer/requirements/test.txt | grep -v \#)
@@ -756,6 +759,7 @@ func_celery_supervisor(){
 
 #Install Django Newfies-Dialer
 func_django_newfiesdialer_install(){
+    pip install psycopg2
     #Prepare Django DB / Migrate / Create User ...
     cd $INSTALL_DIR/
     python manage.py syncdb --noinput
