@@ -88,6 +88,12 @@ func_install_deps() {
             apt-get -y install libvorbis0a libogg0 libogg-dev libvorbis-dev
             apt-get -y install flite flite1-dev
             apt-get -y install unixodbc-dev odbc-postgresql
+
+            apt-get install yasm
+            echo "deb http://files.freeswitch.org/repo/deb/debian/ jessie main" > /etc/apt/sources.list.d/99FreeSWITCH.test.list
+            wget -O - http://files.freeswitch.org/repo/deb/debian/key.gpg |apt-key add -
+            apt-get update
+            DEBIAN_FRONTEND=none APT_LISTCHANGES_FRONTEND=none apt-get install -y --force-yes freeswitch-video-deps-most
             ;;
         'CENTOS')
             yum -y update

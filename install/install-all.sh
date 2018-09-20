@@ -111,6 +111,7 @@ case $DIST in
     'DEBIAN')
         apt-get -y update
         apt-get -y install vim git-core
+        apt-get -y upgrade
     ;;
     'CENTOS')
 		func_install_epel_repo
