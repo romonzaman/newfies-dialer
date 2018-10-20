@@ -25,7 +25,7 @@
 
 # Set branch to install develop / default: master
 if [ -z "${BRANCH}" ]; then
-    BRANCH='master'
+    BRANCH='develop'
 fi
 
 #Get Scripts dependencies
