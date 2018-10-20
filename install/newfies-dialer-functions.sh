@@ -777,7 +777,7 @@ func_django_newfiesdialer_install(){
 
     #Load Countries Dialcode
     #python manage.py load_country_dialcode
-    wget --no-check-certificate https://raw.github.com/areski/django-sms-gateway/master/sms/fixtures/example_gateways.json
+    wget --no-check-certificate https://raw.github.com/romonzaman/django-sms-gateway/master/sms/fixtures/example_gateways.json
     python manage.py loaddata example_gateways.json
     rm example_gateways.json
 
