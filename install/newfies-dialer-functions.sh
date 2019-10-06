@@ -457,7 +457,7 @@ func_backup_prev_install(){
 func_install_source(){
 
     #get Newfies-Dialer
-    echo "Install Newfies-Dialer..."
+    echo "Install Newfies-Dialer..."bbi
     cd /usr/src/
     rm -rf newfies-dialer
     mkdir /var/log/newfies
@@ -915,12 +915,12 @@ func_install_rabbitmq() {
     echo "Install RabbitMQ ..."
     case $DIST in
         'DEBIAN')
-            chk=`grep "rabbitmq" /etc/apt/sources.list.d/rabbitmq.list|wc -l`
-            if [ $chk -lt 1 ] ; then
-                echo "Setup new sources.list entries for RabbitMQ"
-                echo "deb http://www.rabbitmq.com/debian/ testing main" > /etc/apt/sources.list.d/rabbitmq.list
-                wget --no-check-certificate --quiet -O - http://www.rabbitmq.com/rabbitmq-signing-key-public.asc | apt-key add -
-            fi
+            #chk=`grep "rabbitmq" /etc/apt/sources.list.d/rabbitmq.list|wc -l`
+            #if [ $chk -lt 1 ] ; then
+            #    echo "Setup new sources.list entries for RabbitMQ"
+            #    echo "deb http://www.rabbitmq.com/debian/ testing main" > /etc/apt/sources.list.d/rabbitmq.list
+            #    wget --no-check-certificate --quiet -O - http://www.rabbitmq.com/rabbitmq-signing-key-public.asc | apt-key add -
+            #fi
             apt-get update
             apt-get -y install rabbitmq-server
             /usr/sbin/rabbitmq-plugins enable rabbitmq_management
