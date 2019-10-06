@@ -25,7 +25,7 @@ fi
 
 FS_CONF_PATH=https://raw.github.com/romonzaman/newfies-dialer/$BRANCH/install/freeswitch-conf
 FS_INIT_PATH=https://raw.github.com/romonzaman/newfies-dialer/$BRANCH/install/freeswitch-init
-FS_CONFIG_PATH=/etc/freeswitch
+FS_CONFIG_PATH=/etc/freeswitch/freeswitch
 FS_BASE_PATH=/usr/src
 CURRENT_PATH=$PWD
 # KERNELARCH=$(uname -m)
@@ -220,7 +220,7 @@ func_configure_fs() {
     -e "s/<\!--\s?<load module=\"mod_dingaling\"\/>\s?-->/<load module=\"mod_dingaling\"\/>/g" \
     -e "s/<\!--\s?<load module=\"mod_shell_stream\"\/>\s?-->/<load module=\"mod_shell_stream\"\/>/g" \
     -e "s/<\!-- \s?<load module=\"mod_shell_stream\"\/>\s? -->/<load module=\"mod_shell_stream\"\/>/g" \
-    -e "s/<\!--\s?<load module=\"mod_shout\"\/>\s?-->/<load module=\"mod_shout\"\/>/g" \
+    -e "s/<\!--\s?<load module=\"mod_shout\"\/>\s?-->/<load module=\"mod_shout\"\/><load module=\"mod_amd\"\/>/g" \
     -e "s/<\!--\s?<load module=\"mod_tts_commandline\"\/>\s?-->/<load module=\"mod_tts_commandline\"\/>/g" \
     -e "s/<\!--\s?<load module=\"mod_flite\"\/>\s?-->/<load module=\"mod_flite\"\/>/g" \
     -e "s/<\!--\s?<load module=\"mod_say_ru\"\/>\s?-->/<load module=\"mod_say_ru\"\/>/g" \
