@@ -231,6 +231,9 @@ func_configure_fs() {
     [ -f lua.conf.xml ] && mv lua.conf.xml lua.conf.xml.bak
     wget --no-check-certificate $FS_CONF_PATH/lua.conf.xml -O lua.conf.xml
 
+    [ -f event_socket.conf.xml ] && mv event_socket.conf.xml event_socket.conf.xml.bak
+    wget --no-check-certificate $FS_CONF_PATH/event_socket.conf.xml -O event_socket.conf.xml
+
     #Configure Dialplan
     #cd $FS_CONFIG_PATH/conf/dialplan/
     #Configure XML CDR
