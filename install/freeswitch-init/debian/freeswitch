@@ -16,7 +16,7 @@ PATH=/sbin:/usr/sbin:/bin:/usr/bin:/usr/local/bin
 DESC="Freeswitch"
 NAME=freeswitch
 DAEMON=/usr/local/freeswitch/bin/$NAME
-DAEMON_ARGS="-nc"
+DAEMON_ARGS="-ncwait -nonat"
 PIDFILE=/usr/local/freeswitch/run/$NAME.pid
 SCRIPTNAME=/etc/init.d/$NAME
 
